@@ -7,15 +7,15 @@ public class ordenar_num {
     */
 
     public static void main(String[] args) {
-        Scanner imput = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         int num1, num2, num3;
         System.out.println("Ingrese 3 números: ");
         System.out.println("Primer número: ");
-        num1 = imput.nextInt();
+        num1 = input.nextInt();
         System.out.println("Segundo número: ");
-        num2 = imput.nextInt();
+        num2 = input.nextInt();
         System.out.println("Tercer número: ");
-        num3 = imput.nextInt();
+        num3 = input.nextInt();
 
         if(num1 > num2 && num1 > num3){
             if(num2 > num3){
