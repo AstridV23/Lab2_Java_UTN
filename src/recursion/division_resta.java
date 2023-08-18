@@ -1,5 +1,4 @@
 package recursion;
-import java.util.Scanner;
 /*
     Desarrolla un programa que realice la división de dos números enteros
     utilizando tanto el enfoque recursivo como el iterativo con restas sucesivas.
@@ -7,7 +6,7 @@ import java.util.Scanner;
     para diferenciarlos. Luego, realiza pruebas utilizando distintos pares de números.
 */
 public class division_resta {
-    public static int dividir(int endo, int isor) {
+    public static double dividir(float endo, float isor) {
         if (isor == 0) {
             throw new IllegalArgumentException("El divisor no puede ser cero.");
         } else if (endo < isor) {
@@ -17,7 +16,7 @@ public class division_resta {
         }
     }
 
-    public static float dividir(float endo, float isor) {
+    public static double dividir(double endo, double isor) {
         if (isor == 0) {
             throw new IllegalArgumentException("El divisor no puede ser cero.");
         }
@@ -33,21 +32,24 @@ public class division_resta {
     }
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        float endo, isor;
+        float endo1, isor1;
+        double cociente;
 
-        System.out.println("Dividendo: ");
-        endo = input.nextFloat();
-        System.out.println("Divisor: ");
-        isor = input.nextFloat();
+        endo1 = 123.456F;
+        isor1 = 3.14159F;
 
-        int cocienteRecInt = dividir((int) endo, (int) isor);
-        float cocienteRecFloat = dividir(endo, isor);
+        cociente = dividir(endo1, isor1);
 
-        System.out.println("Recursivo (entero): ");
-        System.out.println("Cociente: " + cocienteRecInt);
+        System.out.println("Cociente (recursividad): " +cociente);
 
-        System.out.println("Recursivo (flotante): ");
-        System.out.println("Cociente: " + cocienteRecFloat);
+        double endo2, isor2;
+
+        endo2 = 12345.6789;
+        isor2 = 444.001;
+
+        cociente = dividir(endo2, isor2);
+
+        System.out.println("Cociente (iteratividad): " +cociente);
+
     }
 }

@@ -1,7 +1,4 @@
 package recursion;
-
-import java.util.Scanner;
-
 /*
     Crea un programa que calcule el factorial de un número utilizando dos métodos diferentes:
     uno utilizando recursión y otro utilizando iteración.
@@ -10,7 +7,7 @@ import java.util.Scanner;
     Realiza pruebas del programa con distintos números enteros.
 */
 public class sobrecarga_factorial {
-    public static int factorial(int n) {
+    public static long factorial(int n) {
         if (n < 0) {
             throw new IllegalArgumentException("El factorial no está definido para números negativos");
         }else if(n==0 || n==1){
@@ -18,7 +15,7 @@ public class sobrecarga_factorial {
         }
         return n * factorial (n-1);
     }
-    public static int factorial(int n, int ite) {
+    public static long factorial(long n) {
         if (n < 0) {
             throw new IllegalArgumentException("El factorial no está definido para números negativos");
         }
@@ -30,19 +27,16 @@ public class sobrecarga_factorial {
         return result;
     }
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        long result;
 
-        System.out.println("Calcular el factorial de: ");
-        int num = input.nextInt();
-        int ite = 1;
+        int num1 = 5;
 
-        int resultRec = factorial(num);
-        int resultIte = factorial(num, ite);
+        result = factorial(num1);
+        System.out.println("Resultado de "+num1+"!: "+result+" (recursividad)");
 
-        System.out.println("Forma recursiva: ");
-        System.out.println("El factorial de " + num + " es: " + resultRec);
-        System.out.println("Forma iterativa: ");
-        System.out.println("El factorial de " + num + " es: " + resultIte);
+        long num2 = 10L;
 
+        result = factorial(num2);
+        System.out.println("Resultado de "+num2+"!: "+result+" (iteratividad)");
     }
 }

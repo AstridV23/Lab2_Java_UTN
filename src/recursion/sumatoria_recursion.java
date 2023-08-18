@@ -1,7 +1,6 @@
 package recursion;
 
 import java.util.Scanner;
-
 /*
 Escribe un programa que calcule la sumatoria de los números enteros desde 1
 hasta un número dado utilizando una función recursiva. Implementa esta funcionalidad en una clase separada.
