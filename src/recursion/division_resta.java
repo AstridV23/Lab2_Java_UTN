@@ -1,7 +1,5 @@
 package recursion;
-
 import java.util.Scanner;
-
 /*
     Desarrolla un programa que realice la división de dos números enteros
     utilizando tanto el enfoque recursivo como el iterativo con restas sucesivas.
@@ -9,39 +7,47 @@ import java.util.Scanner;
     para diferenciarlos. Luego, realiza pruebas utilizando distintos pares de números.
 */
 public class division_resta {
-    public static int dividirRecursion(int dend, int isor) {
-        if (dend == 0) {
-            return 0;
-        } else if (dend < isor) {
+    public static int dividir(int endo, int isor) {
+        if (isor == 0) {
+            throw new IllegalArgumentException("El divisor no puede ser cero.");
+        } else if (endo < isor) {
             return 0;
         } else {
-            return 1 + dividirRecursion(dend - isor, isor);
+            return 1 + dividir(endo - isor, isor);
         }
     }
-    public static int dividirIteracion(int dend, int isor) {
+
+    public static float dividir(float endo, float isor) {
+        if (isor == 0) {
+            throw new IllegalArgumentException("El divisor no puede ser cero.");
+        }
+
         int cociente = 0;
 
-        while (dend >= isor) {
-            dend -= isor;
+        while (endo >= isor) {
+            endo -= isor;
             cociente++;
         }
 
         return cociente;
     }
+
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int dend, isor;
+        float endo, isor;
+
         System.out.println("Dividendo: ");
-        dend = input.nextInt();
+        endo = input.nextFloat();
         System.out.println("Divisor: ");
-        isor = input.nextInt();
+        isor = input.nextFloat();
 
-        int cocienteRec = dividirRecursion(dend, isor);
-        int cocienteIte = dividirIteracion(dend, isor);
+        int cocienteRecInt = dividir((int) endo, (int) isor);
+        float cocienteRecFloat = dividir(endo, isor);
 
-        System.out.println("Recursividad: ");
-        System.out.println("cociente: " + cocienteRec);
-        System.out.println("Iteración: ");
-        System.out.println("cociente: " + cocienteIte);
+        System.out.println("Recursivo (entero): ");
+        System.out.println("Cociente: " + cocienteRecInt);
+
+        System.out.println("Recursivo (flotante): ");
+        System.out.println("Cociente: " + cocienteRecFloat);
     }
 }

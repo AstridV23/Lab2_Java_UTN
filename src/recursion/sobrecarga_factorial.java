@@ -10,15 +10,15 @@ import java.util.Scanner;
     Realiza pruebas del programa con distintos números enteros.
 */
 public class sobrecarga_factorial {
-    public static int factorialRecursion(int n) {
+    public static int factorial(int n) {
         if (n < 0) {
             throw new IllegalArgumentException("El factorial no está definido para números negativos");
         }else if(n==0 || n==1){
             return 1;
         }
-        return n * factorialRecursion (n-1);
+        return n * factorial (n-1);
     }
-    public static int factorialIteracion(int n) {
+    public static int factorial(int n, int ite) {
         if (n < 0) {
             throw new IllegalArgumentException("El factorial no está definido para números negativos");
         }
@@ -34,9 +34,10 @@ public class sobrecarga_factorial {
 
         System.out.println("Calcular el factorial de: ");
         int num = input.nextInt();
+        int ite = 1;
 
-        int resultRec = factorialIteracion(num);
-        int resultIte = factorialRecursion(num);
+        int resultRec = factorial(num);
+        int resultIte = factorial(num, ite);
 
         System.out.println("Forma recursiva: ");
         System.out.println("El factorial de " + num + " es: " + resultRec);
